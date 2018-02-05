@@ -1,10 +1,9 @@
 dist: trusty
 sudo: required
 
-# todo
-#env:
-#  - releasever=27 basearch=x86_64
+services:
+  - docker
 
 script:
   - docker run -i --rm -v "$(pwd)":/results  --privileged fedora:latest /bin/bash <./create_container.sh
-  - docker build -t fedora-min:latest
+  - docker build -t fedora-min:latest .

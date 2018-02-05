@@ -1,6 +1,6 @@
 #!/bin/bash
 
-dnf -y install git pykickstart
+dnf -y install lorax lorax-lmc-novirt git pykickstart
 git clone https://pagure.io/fedora-kickstarts.git
 
 ksflatten --config fedora-kickstarts/fedora-docker-base-minimal.ks -o /test.ks --version F27
