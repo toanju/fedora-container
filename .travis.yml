@@ -7,4 +7,5 @@ before_script:
   - sudo usermod -a -G mock travis
 
 script:
-- sudo -E su $USER -c 'mock -r fedora-rawhide-x86_64 --init'
+- sudo -E su $USER -c 'env'
+- sudo -E su $USER -c '/usr/bin/mock -r fedora-rawhide-x86_64 --init'
