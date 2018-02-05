@@ -10,8 +10,7 @@ before_script:
   - sudo usermod -a -G mock travis
 
 script:
-  - envsubst <templates/repo/fedora.repo >./fedora.repo
+  - envsubst <templates/repo/fedora.repo >./fedora.repo && cat ./fedora.repo
   - sudo mv ./fedora.repo /etc/yum/repos.d/
   - sudo -E su $USER -c 'env'
-  - sudo -E su $USER -c 'envsubst
   - sudo -E su $USER -c '/usr/bin/mock -r fedora-rawhide-x86_64 --init --resultdir=/home/$USER/results/'
