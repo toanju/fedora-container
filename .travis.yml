@@ -1,11 +1,17 @@
 dist: trusty
 sudo: required
 
+env:
+  - releasever=27 basearch=x86_64
+
 before_script:
   - sudo apt-get install -y mock
   - sudo groupadd mock
   - sudo usermod -a -G mock travis
 
 script:
-- sudo -E su $USER -c 'env'
-- sudo -E su $USER -c '/usr/bin/mock -r fedora-rawhide-x86_64 --init --resultdir=/home/$USER/results/'
+  - envsubst <templates/repo/fedora.repo >./fedora.repo
+  - sudo mv ./fedora.repo /etc/yum/repos.d/
+  - sudo -E su $USER -c 'env'
+  - sudo -E su $USER -c 'envsubst
+  - sudo -E su $USER -c '/usr/bin/mock -r fedora-rawhide-x86_64 --init --resultdir=/home/$USER/results/'
