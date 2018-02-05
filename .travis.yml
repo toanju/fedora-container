@@ -8,4 +8,4 @@ before_script:
 
 script:
 - sudo -E su $USER -c 'env'
-- sudo -E su $USER -c '/usr/bin/mock -r fedora-rawhide-x86_64 --init'
+- sudo -E su $USER -c '/usr/bin/mock -r fedora-rawhide-x86_64 --init --resultdir=~/mock/'
