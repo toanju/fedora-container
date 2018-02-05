@@ -1,0 +1,10 @@
+dist: trusty
+sudo: required
+
+before_script:
+  - sudo apt-get install -y mock
+  - groupadd mock
+  - usermod -a -G mock travis
+
+script:
+- mock -r fedora-rawhide-x86_64 --init
