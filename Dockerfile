@@ -1,4 +1,4 @@
 FROM scratch
 LABEL maintainer "Tobias Jungel <tobias.jungel@gmail.com>"
 ENV container=oci
-ADD ./lmc/root.tar.xz /
+ADD ./fedora-root.tar.xz /
